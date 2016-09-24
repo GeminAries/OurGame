@@ -28,6 +28,9 @@ namespace Game
         //a string to determine the text when a player enters the room.
         private string entryText;
 
+        //a boolean to determine if the room is trapped or not.
+        private bool isTrapped;
+
         //a string to determine the room's name
         private String name;
 
@@ -48,7 +51,11 @@ namespace Game
 
         //a boolean to determine if an area has been previously explored
         private bool isExplored;
-        
+
+        public void setIsTrapped(bool tf)
+        {
+            this.isTrapped = tf;
+        }
         public void setEntryText(string word)
         {
             this.entryText = word;
@@ -96,6 +103,16 @@ namespace Game
         public string getName()
         {
             return this.name;
+        }
+
+        public string getEntryText()
+        {
+            return this.entryText;
+        }
+
+        public bool getIsTrapped()
+        {
+            return this.isTrapped;
         }
     }//end Room class
 
