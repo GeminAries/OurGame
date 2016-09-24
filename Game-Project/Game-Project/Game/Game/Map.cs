@@ -48,11 +48,6 @@ namespace Game
 
         //a boolean to determine if an area has been previously explored
         private bool isExplored;
-        
-        public void setEntryText(string word)
-        {
-            this.entryText = word;
-        }
 
         public void setName(string name)
         {
