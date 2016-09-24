@@ -82,7 +82,50 @@ namespace Game
         {
             if (textbox_CharName.Text != null && textbox_CharName.Text != "")
             {
-               //Create a new player object using Name inputted and dice-rolled base stats.  100 health, 50 ability points.
+                //Hide and disable interface components
+                CharacterNameLabel.Enabled = false;
+                CharacterNameLabel.Visible = false;
+                textbox_CharName.Enabled = false;
+                textbox_CharName.Visible = false;
+                startGameButton.Enabled = false;
+                startGameButton.Visible = false;
+
+                //Create a new player object using Name inputted and dice-rolled base stats.  100 health, 50 ability points.
+                Player player = new Player();
+                player.setName(textbox_CharName.Text);
+                player.setHitPoints(100);
+                player.setAbilityPoints(50);
+
+                //Dice role core stats.
+                Random rand = new Random();
+                player.setAttackPower(rand.Next(4, 100));
+                player.setDefenseRating(rand.Next(4, 100));
+                player.setAbilityPower(rand.Next(4, 100));
+                player.setMagicDefense(rand.Next(4, 100));
+                player.setConstitution(rand.Next(4, 100));
+                player.setIntelligence(rand.Next(4, 100));
+                player.setPerception(rand.Next(4, 100));
+                player.setLuck(rand.Next(4, 100));
+
+                //Set experience
+                player.setExperience(0);
+                player.setExperienceToNext(100);
+                player.setLevel(1);
+
+                //location
+                player.setX(20);
+                player.setY(33);
+
+                //welcome the character using its name.
+                hubClear();
+                hubWriteLine("Character created!  Are you ready to start your journey, " + player.getName() + "?\n");
+
+                //Report the new character's statistics.
+                hubWriteLine("Character Level: " + player.getLevel() + "\nHitPoints: " + player.getHitPoints() + "\nAbility Points: " + player.getAbilityPoints() + "\n----------------\nAttack Power: " + player.getAttackPower() +
+                    "\nDefense Rating: " + player.getDefenseRating() + "\nAbility Power: " + player.getAbilityPower() + "\nMagic Defense: " + player.getMagicDefense() + "\nConstitution: " + player.getConstitution() + "\nLuck: " +
+                    player.getLuck() + "\nIntelligence: " + player.getPerception() + "\n"); 
+                    
+                
             }
 
                  
@@ -106,7 +149,7 @@ namespace Game
             centralInfoHub.AppendText(text + "\n");
         }
 
-        public void hubClear(string text)
+        public void hubClear()
         {
             centralInfoHub.Text = "";
         }
