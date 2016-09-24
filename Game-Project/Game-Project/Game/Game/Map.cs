@@ -23,7 +23,7 @@ namespace Game
     {
 
         //a room is a 8x8 array of Entity Object Lists
-        LinkedList entityList = new LinkedList();
+        LinkedList[,] entityList = new LinkedList[8, 8];
 
         //a string to determine the room's name
         private String name;
