@@ -16,7 +16,8 @@ namespace Game
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            int i = 0;
+            i++;
             //Run the GUI
             Application.Run(new GUI());
 
